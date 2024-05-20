@@ -1,0 +1,24 @@
+services:
+  fastapi:
+    build:
+      context: ../../fast-api
+      dockerfile: Dockerfile
+    environment:
+      - PULSE_SERVER=unix:/tmp/pulseaudio.socket
+      - PULSE_COOKIE=/tmp/pulseaudio.cookie
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /tmp/pulseaudio.socket:/tmp/pulseaudio.socket
+      - /tmp/pulseaudio.client.conf:/etc/pulse/client.conf
+    user: "${UID}:${GID}"
+    ports:
+      - "8000:8000"
+  vue:
+    build:
+      context: ../../vue
+      dockerfile: Dockerfile
+    env_file:
+      - .vue.env
+    ports:
+      - "8080:8080"
