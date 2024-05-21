@@ -16,6 +16,7 @@ services:
       - "${BACKEND_PORT}:8000"
     devices:
       - "/dev/snd"
+    privileged: true
   vue:
     build:
       context: ../../vue
