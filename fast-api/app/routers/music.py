@@ -10,7 +10,7 @@ async def read_users():
 
 @router.get("/play_song")
 async def play_song():
-    os.system('/code/app/music_player/play_song.sh')
+    os.system('/code/app/music_player/play_song.sh satanist.mp3')
     return {"song": "play song"}
 
 @router.get("/stop_song")
