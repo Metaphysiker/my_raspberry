@@ -11,9 +11,6 @@ services:
     volumes:
       - "${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native"
       - ~/.config/pulse/cookie:/root/.config/pulse/cookie
-    devices:
-      - "/dev/snd"
-    privileged: true
   vue:
     build:
       context: ../../vue
