@@ -2,7 +2,7 @@ docker build . -t fast-api
 
 docker run -p 8000:8000 fast-api
 
-docker run -it -p 8000:8000 --privileged --device=/dev/snd:/dev/snd --rm --name fast-api fast-api sh
+docker run -it -p 8001:8000 --privileged --device=/dev/snd:/dev/snd --rm --name fast-api fast-api sh
 
 docker run --rm \
  --env PULSE_SERVER=unix:/tmp/pulseaudio.socket \

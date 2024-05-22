@@ -6,7 +6,7 @@ COPY ./requirements.txt /code/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-RUN apt update && apt install -y vlc alsa-utils mpg123 pulseaudio
+RUN apt update && apt install -y mpg123 pulseaudio
 
 COPY ./app /code/app
 
