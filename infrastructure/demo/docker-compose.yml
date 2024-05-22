@@ -3,17 +3,14 @@ services:
     build:
       context: ../../fast-api
       dockerfile: Dockerfile
-    environment:
-      - PULSE_SERVER=unix:/tmp/pulseaudio.socket
-      - PULSE_COOKIE=/tmp/pulseaudio.cookie
-      - DISPLAY=$DISPLAY
-    volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix
-      - ./pulseaudio.socket:/tmp/pulseaudio.socket
-      - ./pulseaudio.client.conf:/etc/pulse/client.conf
     user: "${UID}:${GID}"
     ports:
       - "${BACKEND_PORT}:8000"
+    environment:
+      - PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native
+    volumes:
+      - "${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native"
+      - ~/.config/pulse/cookie:/root/.config/pulse/cookie
     devices:
       - "/dev/snd"
     privileged: true
