@@ -37,3 +37,8 @@ async def play_specific_song(songRequest: SongRequest):
 async def get_available_songs():
     songs = os.listdir('/code/app/music_player/music_library')
     return songs
+
+@router.get("/play_special_list")
+async def play_special_list():
+    os.system("/code/app/music_player/play_special_list.sh")
+    return {"song": "special list"}

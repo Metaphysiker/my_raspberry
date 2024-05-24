@@ -25,7 +25,14 @@ onMounted(() => {
       </button>
     </div>
     <div>
-      <button type="button" class="btn btn-primary" @click="musicPlayerService.stop()">Stop</button>
+      <button type="button" class="btn btn-primary mb-3" @click="musicPlayerService.stop()">
+        Stop
+      </button>
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" @click="musicPlayerService.playSpecialList()">
+        Play Special List
+      </button>
     </div>
   </div>
 </template>

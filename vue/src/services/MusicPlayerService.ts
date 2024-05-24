@@ -30,4 +30,10 @@ export class MusicPlayerService {
       fetch(this.baseUrl + '/stop_song').then(() => resolve())
     })
   }
+
+  playSpecialList() {
+    return new Promise<void>((resolve) => {
+      fetch(this.baseUrl + '/play_special_list').then(() => resolve())
+    })
+  }
 }
